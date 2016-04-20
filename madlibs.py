@@ -6,6 +6,7 @@ from flask import Flask, render_template, request
 # "__name__" is a special Python variable for the name of the current module
 # Flask wants to know this to know what any imported things are relative to.
 app = Flask(__name__) #cra-ching 
+# fido = Dog("fido")
 
 AWESOMENESS = [
     'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
@@ -19,7 +20,7 @@ def start_here():
     return "Hi! This is the home page."
 
 
-@app.route('/hello')
+@app.route('/cheese')
 def say_hello():
     """Save hello to user."""
 
@@ -42,9 +43,9 @@ def greet_person():
 def show_game_form_Y():
     """Play game."""
  
-    YN = request.args.get("YN")
+    another_game = request.args.get("YN")
  
-    if YN == "yes":
+    if another_game == "yes":
          return render_template("game.html")
     else:
         return render_template("goodbye.html")
@@ -53,11 +54,12 @@ def show_game_form_Y():
 def show_madlib():
     """Repond to choices."""
 
-
+    
+    color = request.args.get ("color")
     person = request.args.get("person")
     noun = request.args.get ("noun")
     adjective = request.args.get ("adjective")
-    color = request.args.get ("color")
+    
 
     return render_template("madlib.html",
                         color=color,
