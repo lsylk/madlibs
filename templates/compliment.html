@@ -1,3 +1,6 @@
+
+
+
 <!doctype html>
 <html>
 <head>
@@ -5,5 +8,13 @@
 </head>
 <body>
     Hi {{ person }}! I think you're {{ compliment }}!
+
+    Would you like to play a game?
+<form action="/game">
+    <input type="radio" name="YN" value="yes">YES
+    <input type="radio" name="YN" value="no">NO
+    <input type="submit"> 
+</form>
+    
 </body>
 </html>

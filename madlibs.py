@@ -38,6 +38,17 @@ def greet_person():
                            person=player,
                            compliment=compliment)
 
+@app.route('/game')
+def show_game_form_Y():
+    """Play game."""
+ 
+    YN = request.args.get("YN")
+ 
+    if YN == "yes":
+         return render_template("game.html")
+    else:
+        return render_template("goodbye.html")
+    
 
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
